@@ -16,6 +16,8 @@
 		08DFC6B629EFC53E00C3631A /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6B529EFC53E00C3631A /* SidebarView.swift */; };
 		08DFC6B829EFC54B00C3631A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6B729EFC54B00C3631A /* DetailView.swift */; };
 		08DFC6BA29EFCF8900C3631A /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6B929EFCF8900C3631A /* Filter.swift */; };
+		08DFC6BC29F00A0B00C3631A /* Issue-CD_Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6BB29F00A0B00C3631A /* Issue-CD_Helpers.swift */; };
+		08DFC6BE29F00E7F00C3631A /* Tag-CD_Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6BD29F00E7F00C3631A /* Tag-CD_Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		08DFC6B529EFC53E00C3631A /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		08DFC6B729EFC54B00C3631A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		08DFC6B929EFCF8900C3631A /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		08DFC6BB29F00A0B00C3631A /* Issue-CD_Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Issue-CD_Helpers.swift"; sourceTree = "<group>"; };
+		08DFC6BD29F00E7F00C3631A /* Tag-CD_Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag-CD_Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 				08DFC6B529EFC53E00C3631A /* SidebarView.swift */,
 				08DFC6A229EEE5DD00C3631A /* ContentView.swift */,
 				08DFC6B729EFC54B00C3631A /* DetailView.swift */,
+				08DFC6BB29F00A0B00C3631A /* Issue-CD_Helpers.swift */,
+				08DFC6BD29F00E7F00C3631A /* Tag-CD_Helpers.swift */,
 				08DFC6AF29EEECC100C3631A /* Main.xcdatamodeld */,
 				08DFC6A429EEE5E100C3631A /* Assets.xcassets */,
 				08DFC6A629EEE5E100C3631A /* HWSPorfolio.entitlements */,
@@ -156,6 +162,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08DFC6BC29F00A0B00C3631A /* Issue-CD_Helpers.swift in Sources */,
+				08DFC6BE29F00E7F00C3631A /* Tag-CD_Helpers.swift in Sources */,
 				08DFC6BA29EFCF8900C3631A /* Filter.swift in Sources */,
 				08DFC6B129EEECC100C3631A /* Main.xcdatamodeld in Sources */,
 				08DFC6B829EFC54B00C3631A /* DetailView.swift in Sources */,
