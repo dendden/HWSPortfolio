@@ -14,6 +14,8 @@ class DataController: ObservableObject {
     @Published var selectedFilter: Filter? = Filter.allIssues
     @Published var selectedIssue: Issue?
     
+    private var saveTask: Task<Void, Error>?
+    
     static var preview: DataController = {
         let dataController = DataController(inMemory: true)
         dataController.createSampleData()
@@ -72,6 +74,16 @@ class DataController: ObservableObject {
     func save() {
         if self.container.viewContext.hasChanges {
             try? container.viewContext.save()
+        }
+    }
+    
+    func queueSave() {
+        saveTask?.cancel()
+        
+        // explicitly force the Task to main thread, otherwise it might run on background
+        saveTask = Task { @MainActor in
+            try await Task.sleep(for: .seconds(3))
+            save()
         }
     }
     
