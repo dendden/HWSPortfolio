@@ -18,6 +18,7 @@
 		08DFC6BA29EFCF8900C3631A /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6B929EFCF8900C3631A /* Filter.swift */; };
 		08DFC6BC29F00A0B00C3631A /* Issue-CD_Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6BB29F00A0B00C3631A /* Issue-CD_Helpers.swift */; };
 		08DFC6BE29F00E7F00C3631A /* Tag-CD_Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6BD29F00E7F00C3631A /* Tag-CD_Helpers.swift */; };
+		08DFC6C029F01C7000C3631A /* IssueRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6BF29F01C7000C3631A /* IssueRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		08DFC6B929EFCF8900C3631A /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		08DFC6BB29F00A0B00C3631A /* Issue-CD_Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Issue-CD_Helpers.swift"; sourceTree = "<group>"; };
 		08DFC6BD29F00E7F00C3631A /* Tag-CD_Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag-CD_Helpers.swift"; sourceTree = "<group>"; };
+		08DFC6BF29F01C7000C3631A /* IssueRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				08DFC6B929EFCF8900C3631A /* Filter.swift */,
 				08DFC6B529EFC53E00C3631A /* SidebarView.swift */,
 				08DFC6A229EEE5DD00C3631A /* ContentView.swift */,
+				08DFC6BF29F01C7000C3631A /* IssueRowView.swift */,
 				08DFC6B729EFC54B00C3631A /* DetailView.swift */,
 				08DFC6BB29F00A0B00C3631A /* Issue-CD_Helpers.swift */,
 				08DFC6BD29F00E7F00C3631A /* Tag-CD_Helpers.swift */,
@@ -165,6 +168,7 @@
 				08DFC6BC29F00A0B00C3631A /* Issue-CD_Helpers.swift in Sources */,
 				08DFC6BE29F00E7F00C3631A /* Tag-CD_Helpers.swift in Sources */,
 				08DFC6BA29EFCF8900C3631A /* Filter.swift in Sources */,
+				08DFC6C029F01C7000C3631A /* IssueRowView.swift in Sources */,
 				08DFC6B129EEECC100C3631A /* Main.xcdatamodeld in Sources */,
 				08DFC6B829EFC54B00C3631A /* DetailView.swift in Sources */,
 				08DFC6B329EEF02700C3631A /* DataController.swift in Sources */,
