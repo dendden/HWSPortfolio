@@ -19,6 +19,8 @@
 		08DFC6BC29F00A0B00C3631A /* Issue-CD_Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6BB29F00A0B00C3631A /* Issue-CD_Helpers.swift */; };
 		08DFC6BE29F00E7F00C3631A /* Tag-CD_Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6BD29F00E7F00C3631A /* Tag-CD_Helpers.swift */; };
 		08DFC6C029F01C7000C3631A /* IssueRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6BF29F01C7000C3631A /* IssueRowView.swift */; };
+		08DFC6C229F03AC000C3631A /* IssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6C129F03AC000C3631A /* IssueView.swift */; };
+		08DFC6C429F03ACC00C3631A /* NoIssueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6C329F03ACC00C3631A /* NoIssueView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		08DFC6BB29F00A0B00C3631A /* Issue-CD_Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Issue-CD_Helpers.swift"; sourceTree = "<group>"; };
 		08DFC6BD29F00E7F00C3631A /* Tag-CD_Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag-CD_Helpers.swift"; sourceTree = "<group>"; };
 		08DFC6BF29F01C7000C3631A /* IssueRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueRowView.swift; sourceTree = "<group>"; };
+		08DFC6C129F03AC000C3631A /* IssueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueView.swift; sourceTree = "<group>"; };
+		08DFC6C329F03ACC00C3631A /* NoIssueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoIssueView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 				08DFC6A229EEE5DD00C3631A /* ContentView.swift */,
 				08DFC6BF29F01C7000C3631A /* IssueRowView.swift */,
 				08DFC6B729EFC54B00C3631A /* DetailView.swift */,
+				08DFC6C129F03AC000C3631A /* IssueView.swift */,
+				08DFC6C329F03ACC00C3631A /* NoIssueView.swift */,
 				08DFC6BB29F00A0B00C3631A /* Issue-CD_Helpers.swift */,
 				08DFC6BD29F00E7F00C3631A /* Tag-CD_Helpers.swift */,
 				08DFC6AF29EEECC100C3631A /* Main.xcdatamodeld */,
@@ -173,6 +179,8 @@
 				08DFC6B829EFC54B00C3631A /* DetailView.swift in Sources */,
 				08DFC6B329EEF02700C3631A /* DataController.swift in Sources */,
 				08DFC6B629EFC53E00C3631A /* SidebarView.swift in Sources */,
+				08DFC6C229F03AC000C3631A /* IssueView.swift in Sources */,
+				08DFC6C429F03ACC00C3631A /* NoIssueView.swift in Sources */,
 				08DFC6A329EEE5DD00C3631A /* ContentView.swift in Sources */,
 				08DFC6A129EEE5DD00C3631A /* HWSPorfolioApp.swift in Sources */,
 			);

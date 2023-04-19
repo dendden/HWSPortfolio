@@ -12,6 +12,7 @@ class DataController: ObservableObject {
     let container: NSPersistentCloudKitContainer
     
     @Published var selectedFilter: Filter? = Filter.allIssues
+    @Published var selectedIssue: Issue?
     
     static var preview: DataController = {
         let dataController = DataController(inMemory: true)
@@ -51,7 +52,7 @@ class DataController: ObservableObject {
         for i in 1...5 {
             let tag = Tag(context: viewContext)
             tag.id = UUID()
-            tag.name = "Tag \(i)"
+            tag.name = "Tag\(i)"
             
             for j in 1...10 {
                 let issue = Issue(context: viewContext)
@@ -98,5 +99,14 @@ class DataController: ObservableObject {
         self.delete(fetchRequest: issueRequest)
         
         self.save()
+    }
+    
+    func getMissingTags(from issue: Issue) -> [Tag] {
+        let request = Tag.fetchRequest()
+        let allTags = (try? container.viewContext.fetch(request)) ?? []
+        let allTagsSet = Set(allTags)
+        let difference = allTagsSet.symmetricDifference(issue.issueTags)
+        
+        return difference.sorted()
     }
 }

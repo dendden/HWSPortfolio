@@ -37,7 +37,7 @@ struct ContentView: View {
     }
     
     var body: some View {
-        List {
+        List(selection: $dataController.selectedIssue) {
             ForEach(issues) { issue in
                 IssueRowView(issue: issue)
             }

@@ -27,9 +27,23 @@ extension Issue {
         self.modificationDate ?? .now
     }
     
-    var isueTags: [Tag] {
+    var issueTags: [Tag] {
         let result = tags?.allObjects as? [Tag] ?? []
         return result.sorted()
+    }
+    
+    var issueTagNames: [String] {
+        guard let tags else { return ["No tags"] }
+        
+        if tags.count == 0 { return ["No tags"] }
+        
+        return issueTags.map { tag in
+            "#\(tag.tagName)"
+        }
+    }
+    
+    var issueStatus: String {
+        self.completed ? "Closed" : "Open"
     }
     
     static var example: Issue {
