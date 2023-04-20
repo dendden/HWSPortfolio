@@ -11,19 +11,18 @@ struct ContentView: View {
     
     @EnvironmentObject var dataController: DataController
     
-    var issues: [Issue] {
-        let filter = dataController.selectedFilter ?? .allIssues
-        var allIssues: [Issue]
-        
-        if let tag = filter.tag {
-            allIssues = tag.tagAllIssues
-        } else {
-            let request = Issue.fetchRequest()
-            request.predicate = NSPredicate(format: "modificationDate > %@", filter.minModificationDate as NSDate)
-            allIssues = (try? dataController.container.viewContext.fetch(request)) ?? []
+    var body: some View {
+        List(selection: $dataController.selectedIssue) {
+            ForEach(dataController.getIssuesForSelectedFilter()) { issue in
+                IssueRowView(issue: issue)
+            }
+            .onDelete(perform: delete)
         }
-        
-        return allIssues.sorted()
+        .navigationTitle(navTitle)
+        .searchable(text: $dataController.filterText, tokens: $dataController.filterTokens, suggestedTokens: .constant(dataController.suggestedFilterTokens), prompt: "Filter issues or type # to add tags") { tag in
+//            Text(tag.tagName)
+            TagLabelView(tagName: tag.tagName)
+        }
     }
     
     var navTitle: String {
@@ -36,17 +35,10 @@ struct ContentView: View {
         }
     }
     
-    var body: some View {
-        List(selection: $dataController.selectedIssue) {
-            ForEach(issues) { issue in
-                IssueRowView(issue: issue)
-            }
-            .onDelete(perform: delete)
-        }
-        .navigationTitle(navTitle)
-    }
-    
     func delete(atOffsets offsets: IndexSet) {
+        
+        let issues = dataController.getIssuesForSelectedFilter()
+        
         for offset in offsets {
             let item = issues[offset]
             dataController.delete(item)
@@ -57,5 +49,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(DataController.preview)
     }
 }

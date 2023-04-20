@@ -17,6 +17,10 @@ extension Tag {
         self.name ?? ""
     }
     
+    var tagLabelName: String {
+        "#" + tagName
+    }
+    
     var tagAllIssues: [Issue] {
         self.issues?.allObjects as? [Issue] ?? []
     }

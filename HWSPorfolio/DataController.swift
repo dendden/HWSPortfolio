@@ -7,12 +7,29 @@
 
 import CoreData
 
+enum SortType: String {
+    case dateCreated = "creationDate"
+    case dateModified = "modificationDate"
+}
+
+enum IssueStatus {
+    case all, open, closed
+}
+
 class DataController: ObservableObject {
     
     let container: NSPersistentCloudKitContainer
     
     @Published var selectedFilter: Filter? = Filter.allIssues
     @Published var selectedIssue: Issue?
+    
+    @Published var filterText = ""
+    @Published var filterTokens = [Tag]()
+    
+    @Published var filterEnabled = false
+    @Published var filterPriority = -1
+    @Published var filterByStatus = IssueStatus.all
+    @Published var sortType = SortType.dateCreated
     
     private var saveTask: Task<Void, Error>?
     
@@ -21,6 +38,20 @@ class DataController: ObservableObject {
         dataController.createSampleData()
         return dataController
     }()
+    
+    var suggestedFilterTokens: [Tag] {
+        guard filterText.starts(with: "#") else { return [] }
+        
+        // omit '#' from filtering
+        let trimmedFilterText = String(filterText.dropFirst().trimmingCharacters(in: .whitespaces))
+        let request = Tag.fetchRequest()
+        
+        if !trimmedFilterText.isEmpty {
+            request.predicate = NSPredicate(format: "name CONTAINS[c] %@", trimmedFilterText)
+        }
+        
+        return (try? container.viewContext.fetch(request).sorted()) ?? []
+    }
     
     init(inMemory: Bool = false) {
         self.container = NSPersistentCloudKitContainer(name: "Main")
@@ -120,5 +151,50 @@ class DataController: ObservableObject {
         let difference = allTagsSet.symmetricDifference(issue.issueTags)
         
         return difference.sorted()
+    }
+    
+    func getIssuesForSelectedFilter() -> [Issue] {
+        let filter = self.selectedFilter ?? .allIssues
+        var predicates = [NSPredicate]()
+        
+        if let tag = filter.tag {
+            let tagPredicate = NSPredicate(format: "tags CONTAINS %@", tag)
+            predicates.append(tagPredicate)
+        } else {
+            let datePredicate = NSPredicate(format: "modificationDate > %@", filter.minModificationDate as NSDate)
+            predicates.append(datePredicate)
+        }
+        
+        let trimmedFilterText = filterText.trimmingCharacters(in: .whitespaces)
+        if !trimmedFilterText.isEmpty {
+            // [c] stands for case-insensitive for a predicate (which is sensitive by default)
+            let titlePredicate = NSPredicate(format: "title CONTAINS[c] %@", trimmedFilterText)
+            let contentPredicate = NSPredicate(format: "content CONTAINS[c] %@", trimmedFilterText)
+            let combinedFilterPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [titlePredicate, contentPredicate])
+            predicates.append(combinedFilterPredicate)
+        }
+        
+        if !filterTokens.isEmpty {
+            // an option to filter issues containing ANY of selected tags
+            let tokenPredicate = NSPredicate(format: "ANY tags in %@", filterTokens)
+            predicates.append(tokenPredicate)
+            // an option to filter only issues that contain ALL selected tags:
+            /*for token in filterTokens {
+                let tagPredicate = NSPredicate(format: "tags CONTAINS %@", token)
+                predicates.append(tagPredicate)
+            }*/
+        }
+        
+        let request = Issue.fetchRequest()
+        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+        
+        let allIssues = (try? self.container.viewContext.fetch(request)) ?? []
+        
+        // Option with filtering all fetched issues:
+        /*if !trimmedFilterText.isEmpty {
+            allIssues = allIssues.filter { $0.issueTitle.localizedCaseInsensitiveContains(trimmedFilterText) || $0.issueContent.localizedCaseInsensitiveContains(trimmedFilterText) }
+        }*/
+        
+        return allIssues.sorted()
     }
 }
