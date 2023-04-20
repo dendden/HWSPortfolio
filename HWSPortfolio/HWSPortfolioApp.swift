@@ -1,5 +1,5 @@
 //
-//  HWSPorfolioApp.swift
+//  HWSPortfolioApp.swift
 //  HWSPorfolio
 //
 //  Created by Денис Трясунов on 18.04.2023.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct HWSPorfolioApp: App {
+struct HWSPortfolioApp: App {
     
     @Environment(\.scenePhase) var scenePhase
     

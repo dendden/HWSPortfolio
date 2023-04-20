@@ -30,6 +30,7 @@ class DataController: ObservableObject {
     @Published var filterPriority = -1
     @Published var filterByStatus = IssueStatus.all
     @Published var sortType = SortType.dateCreated
+    @Published var sortNewestFirst = true
     
     private var saveTask: Task<Void, Error>?
     
@@ -185,8 +186,22 @@ class DataController: ObservableObject {
             }*/
         }
         
+        if filterEnabled {
+            if filterPriority >= 0 {
+                let priorityPredicate = NSPredicate(format: "priority = %d", filterPriority)
+                predicates.append(priorityPredicate)
+            }
+            
+            if filterByStatus != .all {
+                let lookForClosed = filterByStatus == .closed
+                let statusPredicate = NSPredicate(format: "completed = %@", NSNumber(value: lookForClosed))
+                predicates.append(statusPredicate)
+            }
+        }
+        
         let request = Issue.fetchRequest()
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+        request.sortDescriptors = [NSSortDescriptor(key: sortType.rawValue, ascending: sortNewestFirst)]
         
         let allIssues = (try? self.container.viewContext.fetch(request)) ?? []
         

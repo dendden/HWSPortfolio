@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08DFC6A129EEE5DD00C3631A /* HWSPorfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6A029EEE5DD00C3631A /* HWSPorfolioApp.swift */; };
+		08DFC6A129EEE5DD00C3631A /* HWSPortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6A029EEE5DD00C3631A /* HWSPortfolioApp.swift */; };
 		08DFC6A329EEE5DD00C3631A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6A229EEE5DD00C3631A /* ContentView.swift */; };
 		08DFC6A529EEE5E100C3631A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08DFC6A429EEE5E100C3631A /* Assets.xcassets */; };
 		08DFC6A929EEE5E100C3631A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08DFC6A829EEE5E100C3631A /* Preview Assets.xcassets */; };
@@ -26,10 +26,10 @@
 
 /* Begin PBXFileReference section */
 		08DFC69D29EEE5DD00C3631A /* HWSPortfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWSPortfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		08DFC6A029EEE5DD00C3631A /* HWSPorfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWSPorfolioApp.swift; sourceTree = "<group>"; };
+		08DFC6A029EEE5DD00C3631A /* HWSPortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWSPortfolioApp.swift; sourceTree = "<group>"; };
 		08DFC6A229EEE5DD00C3631A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		08DFC6A429EEE5E100C3631A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		08DFC6A629EEE5E100C3631A /* HWSPorfolio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HWSPorfolio.entitlements; sourceTree = "<group>"; };
+		08DFC6A629EEE5E100C3631A /* HWSPortfolio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HWSPortfolio.entitlements; sourceTree = "<group>"; };
 		08DFC6A829EEE5E100C3631A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		08DFC6B029EEECC100C3631A /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
 		08DFC6B229EEF02700C3631A /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				08DFC6B429EEFC4000C3631A /* Info.plist */,
-				08DFC6A029EEE5DD00C3631A /* HWSPorfolioApp.swift */,
+				08DFC6A029EEE5DD00C3631A /* HWSPortfolioApp.swift */,
 				08DFC6B229EEF02700C3631A /* DataController.swift */,
 				08DFC6B929EFCF8900C3631A /* Filter.swift */,
 				08DFC6B529EFC53E00C3631A /* SidebarView.swift */,
@@ -90,7 +90,7 @@
 				08DFC6BD29F00E7F00C3631A /* Tag-CD_Helpers.swift */,
 				08DFC6AF29EEECC100C3631A /* Main.xcdatamodeld */,
 				08DFC6A429EEE5E100C3631A /* Assets.xcassets */,
-				08DFC6A629EEE5E100C3631A /* HWSPorfolio.entitlements */,
+				08DFC6A629EEE5E100C3631A /* HWSPortfolio.entitlements */,
 				08DFC6A729EEE5E100C3631A /* Preview Content */,
 			);
 			path = HWSPortfolio;
@@ -186,7 +186,7 @@
 				08DFC6C229F03AC000C3631A /* IssueView.swift in Sources */,
 				08DFC6C429F03ACC00C3631A /* NoIssueView.swift in Sources */,
 				08DFC6A329EEE5DD00C3631A /* ContentView.swift in Sources */,
-				08DFC6A129EEE5DD00C3631A /* HWSPorfolioApp.swift in Sources */,
+				08DFC6A129EEE5DD00C3631A /* HWSPortfolioApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,15 +307,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = HWSPorfolio/HWSPorfolio.entitlements;
+				CODE_SIGN_ENTITLEMENTS = HWSPortfolio/HWSPortfolio.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HWSPorfolio/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"HWSPortfolio/Preview Content\"";
 				DEVELOPMENT_TEAM = Y7QY22UYMJ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HWSPorfolio/Info.plist;
+				INFOPLIST_FILE = HWSPortfolio/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -331,8 +332,9 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.denys-triasunov.HWSPorfolio";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.denys-triasunov.HWSPortfolio";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -346,15 +348,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = HWSPorfolio/HWSPorfolio.entitlements;
+				CODE_SIGN_ENTITLEMENTS = HWSPortfolio/HWSPortfolio.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HWSPorfolio/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"HWSPortfolio/Preview Content\"";
 				DEVELOPMENT_TEAM = Y7QY22UYMJ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HWSPorfolio/Info.plist;
+				INFOPLIST_FILE = HWSPortfolio/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -370,8 +373,9 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.denys-triasunov.HWSPorfolio";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.denys-triasunov.HWSPortfolio";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
