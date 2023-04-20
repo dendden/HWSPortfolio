@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		08DFC69D29EEE5DD00C3631A /* HWSPorfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWSPorfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		08DFC69D29EEE5DD00C3631A /* HWSPortfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWSPortfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08DFC6A029EEE5DD00C3631A /* HWSPorfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWSPorfolioApp.swift; sourceTree = "<group>"; };
 		08DFC6A229EEE5DD00C3631A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		08DFC6A429EEE5E100C3631A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 		08DFC69429EEE5DD00C3631A = {
 			isa = PBXGroup;
 			children = (
-				08DFC69F29EEE5DD00C3631A /* HWSPorfolio */,
+				08DFC69F29EEE5DD00C3631A /* HWSPortfolio */,
 				08DFC69E29EEE5DD00C3631A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,12 +67,12 @@
 		08DFC69E29EEE5DD00C3631A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				08DFC69D29EEE5DD00C3631A /* HWSPorfolio.app */,
+				08DFC69D29EEE5DD00C3631A /* HWSPortfolio.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		08DFC69F29EEE5DD00C3631A /* HWSPorfolio */ = {
+		08DFC69F29EEE5DD00C3631A /* HWSPortfolio */ = {
 			isa = PBXGroup;
 			children = (
 				08DFC6B429EEFC4000C3631A /* Info.plist */,
@@ -93,7 +93,7 @@
 				08DFC6A629EEE5E100C3631A /* HWSPorfolio.entitlements */,
 				08DFC6A729EEE5E100C3631A /* Preview Content */,
 			);
-			path = HWSPorfolio;
+			path = HWSPortfolio;
 			sourceTree = "<group>";
 		};
 		08DFC6A729EEE5E100C3631A /* Preview Content */ = {
@@ -107,9 +107,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		08DFC69C29EEE5DD00C3631A /* HWSPorfolio */ = {
+		08DFC69C29EEE5DD00C3631A /* HWSPortfolio */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 08DFC6AC29EEE5E100C3631A /* Build configuration list for PBXNativeTarget "HWSPorfolio" */;
+			buildConfigurationList = 08DFC6AC29EEE5E100C3631A /* Build configuration list for PBXNativeTarget "HWSPortfolio" */;
 			buildPhases = (
 				08DFC69929EEE5DD00C3631A /* Sources */,
 				08DFC69A29EEE5DD00C3631A /* Frameworks */,
@@ -119,9 +119,9 @@
 			);
 			dependencies = (
 			);
-			name = HWSPorfolio;
+			name = HWSPortfolio;
 			productName = HWSPorfolio;
-			productReference = 08DFC69D29EEE5DD00C3631A /* HWSPorfolio.app */;
+			productReference = 08DFC69D29EEE5DD00C3631A /* HWSPortfolio.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -139,7 +139,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 08DFC69829EEE5DD00C3631A /* Build configuration list for PBXProject "HWSPorfolio" */;
+			buildConfigurationList = 08DFC69829EEE5DD00C3631A /* Build configuration list for PBXProject "HWSPortfolio" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -152,7 +152,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				08DFC69C29EEE5DD00C3631A /* HWSPorfolio */,
+				08DFC69C29EEE5DD00C3631A /* HWSPortfolio */,
 			);
 		};
 /* End PBXProject section */
@@ -383,7 +383,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		08DFC69829EEE5DD00C3631A /* Build configuration list for PBXProject "HWSPorfolio" */ = {
+		08DFC69829EEE5DD00C3631A /* Build configuration list for PBXProject "HWSPortfolio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				08DFC6AA29EEE5E100C3631A /* Debug */,
@@ -392,7 +392,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		08DFC6AC29EEE5E100C3631A /* Build configuration list for PBXNativeTarget "HWSPorfolio" */ = {
+		08DFC6AC29EEE5E100C3631A /* Build configuration list for PBXNativeTarget "HWSPortfolio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				08DFC6AD29EEE5E100C3631A /* Debug */,
