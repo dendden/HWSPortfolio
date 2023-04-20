@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0898E68929F1C87F00C81F1E /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898E68829F1C87F00C81F1E /* Bundle-Decodable.swift */; };
+		0898E69129F1D64F00C81F1E /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898E69029F1D64F00C81F1E /* Award.swift */; };
+		0898E69329F1D7E900C81F1E /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898E69229F1D7E900C81F1E /* AwardsView.swift */; };
+		0898E69629F1DC7F00C81F1E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0898E69429F1DC7F00C81F1E /* Colors.xcassets */; };
+		0898E69729F1DC7F00C81F1E /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 0898E69529F1DC7F00C81F1E /* Awards.json */; };
 		08DFC6A129EEE5DD00C3631A /* HWSPortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6A029EEE5DD00C3631A /* HWSPortfolioApp.swift */; };
 		08DFC6A329EEE5DD00C3631A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6A229EEE5DD00C3631A /* ContentView.swift */; };
 		08DFC6A529EEE5E100C3631A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08DFC6A429EEE5E100C3631A /* Assets.xcassets */; };
@@ -25,6 +30,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0898E68829F1C87F00C81F1E /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		0898E69029F1D64F00C81F1E /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
+		0898E69229F1D7E900C81F1E /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
+		0898E69429F1DC7F00C81F1E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		0898E69529F1DC7F00C81F1E /* Awards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Awards.json; sourceTree = "<group>"; };
 		08DFC69D29EEE5DD00C3631A /* HWSPortfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWSPortfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08DFC6A029EEE5DD00C3631A /* HWSPortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWSPortfolioApp.swift; sourceTree = "<group>"; };
 		08DFC6A229EEE5DD00C3631A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,6 +89,8 @@
 				08DFC6A029EEE5DD00C3631A /* HWSPortfolioApp.swift */,
 				08DFC6B229EEF02700C3631A /* DataController.swift */,
 				08DFC6B929EFCF8900C3631A /* Filter.swift */,
+				0898E69029F1D64F00C81F1E /* Award.swift */,
+				0898E69229F1D7E900C81F1E /* AwardsView.swift */,
 				08DFC6B529EFC53E00C3631A /* SidebarView.swift */,
 				08DFC6A229EEE5DD00C3631A /* ContentView.swift */,
 				08DFC6BF29F01C7000C3631A /* IssueRowView.swift */,
@@ -88,7 +100,10 @@
 				08DFC6C329F03ACC00C3631A /* NoIssueView.swift */,
 				08DFC6BB29F00A0B00C3631A /* Issue-CD_Helpers.swift */,
 				08DFC6BD29F00E7F00C3631A /* Tag-CD_Helpers.swift */,
+				0898E68829F1C87F00C81F1E /* Bundle-Decodable.swift */,
 				08DFC6AF29EEECC100C3631A /* Main.xcdatamodeld */,
+				0898E69529F1DC7F00C81F1E /* Awards.json */,
+				0898E69429F1DC7F00C81F1E /* Colors.xcassets */,
 				08DFC6A429EEE5E100C3631A /* Assets.xcassets */,
 				08DFC6A629EEE5E100C3631A /* HWSPortfolio.entitlements */,
 				08DFC6A729EEE5E100C3631A /* Preview Content */,
@@ -162,6 +177,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0898E69629F1DC7F00C81F1E /* Colors.xcassets in Resources */,
+				0898E69729F1DC7F00C81F1E /* Awards.json in Resources */,
 				08DFC6A929EEE5E100C3631A /* Preview Assets.xcassets in Resources */,
 				08DFC6A529EEE5E100C3631A /* Assets.xcassets in Resources */,
 			);
@@ -179,13 +196,16 @@
 				08DFC6BA29EFCF8900C3631A /* Filter.swift in Sources */,
 				08DFC6C029F01C7000C3631A /* IssueRowView.swift in Sources */,
 				08DFC6B129EEECC100C3631A /* Main.xcdatamodeld in Sources */,
+				0898E68929F1C87F00C81F1E /* Bundle-Decodable.swift in Sources */,
 				08DFC6B829EFC54B00C3631A /* DetailView.swift in Sources */,
 				08DFC6B329EEF02700C3631A /* DataController.swift in Sources */,
+				0898E69329F1D7E900C81F1E /* AwardsView.swift in Sources */,
 				08DFC6C629F068A900C3631A /* TagsCloudView.swift in Sources */,
 				08DFC6B629EFC53E00C3631A /* SidebarView.swift in Sources */,
 				08DFC6C229F03AC000C3631A /* IssueView.swift in Sources */,
 				08DFC6C429F03ACC00C3631A /* NoIssueView.swift in Sources */,
 				08DFC6A329EEE5DD00C3631A /* ContentView.swift in Sources */,
+				0898E69129F1D64F00C81F1E /* Award.swift in Sources */,
 				08DFC6A129EEE5DD00C3631A /* HWSPortfolioApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
