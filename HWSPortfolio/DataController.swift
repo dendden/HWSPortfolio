@@ -212,4 +212,29 @@ class DataController: ObservableObject {
         
         return allIssues.sorted()
     }
+    
+    func addNewIssue() {
+        let newIssue = Issue(context: container.viewContext)
+        newIssue.title = "New Issue"
+        newIssue.creationDate = .now
+        newIssue.priority = 1
+        
+        // if issue is being added from a list of Tag issues - assign that tag to the new issue
+        if let tag = selectedFilter?.tag {
+            newIssue.addToTags(tag)
+        }
+        
+        // navigate to new issue editing screen
+        selectedIssue = newIssue
+        
+        save()
+    }
+    
+    func addNewTag() {
+        let newTag = Tag(context: container.viewContext)
+        newTag.id = UUID()
+        newTag.name = "New tag"
+        
+        save()
+    }
 }

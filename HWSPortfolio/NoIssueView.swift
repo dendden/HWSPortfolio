@@ -12,12 +12,14 @@ struct NoIssueView: View {
     @EnvironmentObject var dataController: DataController
     
     var body: some View {
-        Text("No Issue Selected")
-            .font(.title)
-            .foregroundStyle(.secondary)
-        
-        Button("New Issue") {
-            // male new issue
+        VStack {
+            Text("No Issue Selected")
+                .font(.title)
+                .foregroundStyle(.secondary)
+            
+            Button("New Issue", action: dataController.addNewIssue)
+                .buttonStyle(.borderedProminent)
+                .tint(.secondary)
         }
     }
 }
@@ -25,5 +27,6 @@ struct NoIssueView: View {
 struct NoIssueView_Previews: PreviewProvider {
     static var previews: some View {
         NoIssueView()
+            .environmentObject(DataController.preview)
     }
 }

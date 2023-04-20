@@ -23,6 +23,11 @@ struct ContentView: View {
             TagLabelView(tagName: tag.tagName)
         }
         .toolbar {
+            
+            Button(action: dataController.addNewIssue) {
+                Label("Add new issue", systemImage: "square.and.pencil")
+            }
+            
             Menu {
                 Button(dataController.filterEnabled ? "Turn Off Filter" : "Turn On Filter") {
                     dataController.filterEnabled.toggle()
