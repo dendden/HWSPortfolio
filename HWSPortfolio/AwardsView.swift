@@ -42,13 +42,13 @@ struct AwardsView: View {
             }
             .navigationTitle("Awards")
         }
-        .alert(awardTitle.localized(), isPresented: $showingAwardDetails) {
+        .alert(awardTitle, isPresented: $showingAwardDetails) {
         } message: {
             Text(selectedAward.description)
         }
     }
     
-    var awardTitle: String {
+    var awardTitle: LocalizedStringKey {
         if dataController.hasEarned(selectedAward) {
             return "Unlocked: \(selectedAward.name)"
         } else {
