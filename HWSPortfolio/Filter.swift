@@ -17,8 +17,8 @@ struct Filter: Identifiable, Hashable {
     var minModificationDate = Date.distantPast
     var tag: Tag?
     
-    static var allIssues = Filter(id: UUID(), name: "All Issues", icon: "tray")
-    static var recentIssues = Filter(id: UUID(), name: "Recent Issues", icon: "clock", minModificationDate: .now.addingTimeInterval(Filter.day * -7))
+    static var allIssues = Filter(id: UUID(), name: "All Issues".localized(), icon: "tray")
+    static var recentIssues = Filter(id: UUID(), name: "Recent Issues".localized(), icon: "clock", minModificationDate: .now.addingTimeInterval(Filter.day * -7))
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)

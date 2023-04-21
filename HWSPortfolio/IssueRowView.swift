@@ -39,7 +39,7 @@ struct IssueRowView: View {
                         .font(.subheadline)
                     
                     if issue.completed {
-                        Text("CLOSED")
+                        Text("Closed")
                             .font(.body.smallCaps())
                     }
                 }

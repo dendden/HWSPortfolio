@@ -42,7 +42,7 @@ struct AwardsView: View {
             }
             .navigationTitle("Awards")
         }
-        .alert(awardTitle, isPresented: $showingAwardDetails) {
+        .alert(awardTitle.localized(), isPresented: $showingAwardDetails) {
         } message: {
             Text(selectedAward.description)
         }

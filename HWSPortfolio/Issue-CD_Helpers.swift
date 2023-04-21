@@ -33,9 +33,9 @@ extension Issue {
     }
     
     var issueTagNames: [String] {
-        guard let tags else { return ["No tags"] }
+        guard let tags else { return ["No tags".localized()] }
         
-        if tags.count == 0 { return ["No tags"] }
+        if tags.count == 0 { return ["No tags".localized()] }
         
         return issueTags.map { tag in
             "#\(tag.tagName)"
@@ -43,7 +43,7 @@ extension Issue {
     }
     
     var issueStatus: String {
-        self.completed ? "Closed" : "Open"
+        self.completed ? "Closed".localized() : "Open".localized()
     }
     
     static var example: Issue {

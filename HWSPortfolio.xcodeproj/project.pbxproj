@@ -12,6 +12,9 @@
 		0898E69329F1D7E900C81F1E /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898E69229F1D7E900C81F1E /* AwardsView.swift */; };
 		0898E69629F1DC7F00C81F1E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0898E69429F1DC7F00C81F1E /* Colors.xcassets */; };
 		0898E69729F1DC7F00C81F1E /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 0898E69529F1DC7F00C81F1E /* Awards.json */; };
+		0898E69C29F2E1F300C81F1E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0898E69E29F2E1F300C81F1E /* Localizable.strings */; };
+		0898E69F29F2E1FE00C81F1E /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 0898E6A129F2E1FE00C81F1E /* Localizable.stringsdict */; };
+		0898E6A529F2EB9700C81F1E /* String-Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898E6A429F2EB9700C81F1E /* String-Localized.swift */; };
 		08DFC6A129EEE5DD00C3631A /* HWSPortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6A029EEE5DD00C3631A /* HWSPortfolioApp.swift */; };
 		08DFC6A329EEE5DD00C3631A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6A229EEE5DD00C3631A /* ContentView.swift */; };
 		08DFC6A529EEE5E100C3631A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08DFC6A429EEE5E100C3631A /* Assets.xcassets */; };
@@ -35,6 +38,11 @@
 		0898E69229F1D7E900C81F1E /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
 		0898E69429F1DC7F00C81F1E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		0898E69529F1DC7F00C81F1E /* Awards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Awards.json; sourceTree = "<group>"; };
+		0898E69D29F2E1F300C81F1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0898E6A029F2E1FE00C81F1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		0898E6A229F2E20300C81F1E /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = uk; path = uk.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		0898E6A329F2E20800C81F1E /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0898E6A429F2EB9700C81F1E /* String-Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Localized.swift"; sourceTree = "<group>"; };
 		08DFC69D29EEE5DD00C3631A /* HWSPortfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWSPortfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08DFC6A029EEE5DD00C3631A /* HWSPortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWSPortfolioApp.swift; sourceTree = "<group>"; };
 		08DFC6A229EEE5DD00C3631A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,6 +95,8 @@
 			children = (
 				08DFC6B429EEFC4000C3631A /* Info.plist */,
 				08DFC6A029EEE5DD00C3631A /* HWSPortfolioApp.swift */,
+				0898E69E29F2E1F300C81F1E /* Localizable.strings */,
+				0898E6A129F2E1FE00C81F1E /* Localizable.stringsdict */,
 				08DFC6B229EEF02700C3631A /* DataController.swift */,
 				08DFC6B929EFCF8900C3631A /* Filter.swift */,
 				0898E69029F1D64F00C81F1E /* Award.swift */,
@@ -101,6 +111,7 @@
 				08DFC6BB29F00A0B00C3631A /* Issue-CD_Helpers.swift */,
 				08DFC6BD29F00E7F00C3631A /* Tag-CD_Helpers.swift */,
 				0898E68829F1C87F00C81F1E /* Bundle-Decodable.swift */,
+				0898E6A429F2EB9700C81F1E /* String-Localized.swift */,
 				08DFC6AF29EEECC100C3631A /* Main.xcdatamodeld */,
 				0898E69529F1DC7F00C81F1E /* Awards.json */,
 				0898E69429F1DC7F00C81F1E /* Colors.xcassets */,
@@ -161,6 +172,7 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
 			);
 			mainGroup = 08DFC69429EEE5DD00C3631A;
 			productRefGroup = 08DFC69E29EEE5DD00C3631A /* Products */;
@@ -177,10 +189,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0898E69C29F2E1F300C81F1E /* Localizable.strings in Resources */,
 				0898E69629F1DC7F00C81F1E /* Colors.xcassets in Resources */,
 				0898E69729F1DC7F00C81F1E /* Awards.json in Resources */,
 				08DFC6A929EEE5E100C3631A /* Preview Assets.xcassets in Resources */,
 				08DFC6A529EEE5E100C3631A /* Assets.xcassets in Resources */,
+				0898E69F29F2E1FE00C81F1E /* Localizable.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +212,7 @@
 				08DFC6B129EEECC100C3631A /* Main.xcdatamodeld in Sources */,
 				0898E68929F1C87F00C81F1E /* Bundle-Decodable.swift in Sources */,
 				08DFC6B829EFC54B00C3631A /* DetailView.swift in Sources */,
+				0898E6A529F2EB9700C81F1E /* String-Localized.swift in Sources */,
 				08DFC6B329EEF02700C3631A /* DataController.swift in Sources */,
 				0898E69329F1D7E900C81F1E /* AwardsView.swift in Sources */,
 				08DFC6C629F068A900C3631A /* TagsCloudView.swift in Sources */,
@@ -211,6 +226,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0898E69E29F2E1F300C81F1E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0898E69D29F2E1F300C81F1E /* en */,
+				0898E6A329F2E20800C81F1E /* uk */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		0898E6A129F2E1FE00C81F1E /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0898E6A029F2E1FE00C81F1E /* en */,
+				0898E6A229F2E20300C81F1E /* uk */,
+			);
+			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		08DFC6AA29EEE5E100C3631A /* Debug */ = {
