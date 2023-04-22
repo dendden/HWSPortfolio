@@ -25,19 +25,7 @@ struct AwardsView: View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    ForEach(Award.allAwards) { award in
-                        Button {
-                            selectedAward = award
-                            showingAwardDetails = true
-                        } label: {
-                            Image(systemName: award.image)
-                                .resizable()
-                                .scaledToFit()
-                                .padding()
-                                .frame(width: gridItemSide, height: gridItemSide)
-                                .foregroundColor(dataController.hasEarned(award) ? Color(award.color) : .secondary.opacity(0.5))
-                        }
-                    }
+                    ForEach(Award.allAwards, content: makeAwardButton)
                 }
             }
             .navigationTitle("Awards")
@@ -53,6 +41,20 @@ struct AwardsView: View {
             return "Unlocked: \(selectedAward.name)"
         } else {
             return "\(selectedAward.name) (locked)"
+        }
+    }
+    
+    private func makeAwardButton(for award: Award) -> some View {
+        Button {
+            selectedAward = award
+            showingAwardDetails = true
+        } label: {
+            Image(systemName: award.image)
+                .resizable()
+                .scaledToFit()
+                .padding()
+                .frame(width: gridItemSide, height: gridItemSide)
+                .foregroundColor(dataController.hasEarned(award) ? Color(award.color) : .secondary.opacity(0.5))
         }
     }
 }

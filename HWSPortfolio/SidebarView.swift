@@ -39,15 +39,7 @@ struct SidebarView: View {
             Section("Tags") {
                 ForEach(tagFilters) { filter in
                     NavigationLink(value: filter) {
-                        Label(filter.name, systemImage: filter.icon)
-                            .badge(filter.tag?.tagActiveIssues.count ?? 0)
-                            .contextMenu {
-                                Button {
-                                    rename(filter: filter)
-                                } label: {
-                                    Label("Rename", systemImage: "pencil")
-                                }
-                            }
+                        makeTagFilterLinkLabel(filter: filter)
                     }
                 }
                 .onDelete(perform: delete)
@@ -100,6 +92,18 @@ struct SidebarView: View {
             self.tagToRename?.name = self.editedTagName.trimmingCharacters(in: .whitespaces)
             dataController.save()
         }
+    }
+    
+    func makeTagFilterLinkLabel(filter: Filter) -> some View {
+        Label(filter.name, systemImage: filter.icon)
+            .badge(filter.tag?.tagActiveIssues.count ?? 0)
+            .contextMenu {
+                Button {
+                    rename(filter: filter)
+                } label: {
+                    Label("Rename", systemImage: "pencil")
+                }
+            }
     }
 }
 

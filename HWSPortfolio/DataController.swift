@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import SwiftUI
 
 enum SortType: String {
     case dateCreated = "creationDate"
@@ -268,6 +269,16 @@ class DataController: ObservableObject {
             // unknown award criterion - should never happen in prod!
 //            fatalError("Unknown award criterion: \(award.criterion).")
             return false
+        }
+    }
+    
+    var selectedContentNavigationTitle: LocalizedStringKey {
+        let filter = selectedFilter ?? .allIssues
+        
+        if let tag = filter.tag {
+            return "#\(tag.tagName)"
+        } else {
+            return LocalizedStringKey(filter.name)
         }
     }
 }

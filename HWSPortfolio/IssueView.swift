@@ -19,23 +19,7 @@ struct IssueView: View {
             
             Section {
                 
-                VStack(alignment: .leading) {
-                    
-                    TextField("Title", text: $issue.issueTitle, prompt: Text("Enter the issue title here"))
-                        .font(.title)
-                    
-                    Text("**Modified:** \(issue.issueModificationDate.formatted(date: .long, time: .shortened))")
-                        .foregroundStyle(.secondary)
-                    
-                    HStack {
-                        Text("**Status:** \(issue.issueStatus.uppercased())")
-                        if issue.completed {
-                            Image(systemName: "checkmark.circle.fill")
-                                .imageScale(.small)
-                        }
-                    }
-                    .foregroundStyle(.secondary)
-                }
+                IssueSummaryView(issue: issue)
                 
                 Picker("Priority", selection: $issue.priority) {
                     Text("Low").tag(Int16(0))
@@ -51,36 +35,7 @@ struct IssueView: View {
                         .font(.title3)
                         .foregroundStyle(.secondary)
                     
-                    Menu {
-                        // show selected tags first:
-                        ForEach(issue.issueTags) { tag in
-                            Button {
-                                issue.removeFromTags(tag)
-                            } label: {
-                                Label(tag.tagName, systemImage: "checkmark")
-                            }
-                        }
-                        
-                        // then show unselected tags:
-                        let otherTags = dataController.getMissingTags(from: issue)
-                        
-                        if !otherTags.isEmpty {
-                            Divider()
-                            
-                            Section("Add Tags") {
-                                ForEach(otherTags) { tag in
-                                    Button(tag.tagName) {
-                                        issue.addToTags(tag)
-                                    }
-                                }
-                            }
-                        }
-                    } label: {
-                        Text(issue.issueTagNames.formatted())
-                            .multilineTextAlignment(.leading)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .animation(nil, value: issue.issueTagNames)
-                    }
+                    IssueTagsMenuView(issue: issue)
                 }
             }
             
