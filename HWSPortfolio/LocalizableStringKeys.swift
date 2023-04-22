@@ -8,16 +8,16 @@
 import SwiftUI
 
 enum StringKeys: LocalizedStringKey {
-    case SHOW_AWARDS
-    case ADD_NEW_TAG
-    case SMART_FILTERS
-    
+    case showAwards = "SHOW_AWARDS"
+    case addNewTag = "ADD_NEW_TAG"
+    case smartFilters = "SMART_FILTERS"
+
     var localized: LocalizedStringKey {
         self.rawValue
     }
-    
+
     // optionally can use static constants:
-    static let smartFilters: LocalizedStringKey = "SMART_FILTERS"
+//    static let smartFilters: LocalizedStringKey = "SMART_FILTERS"
 }
 
 // option to use within Text init():

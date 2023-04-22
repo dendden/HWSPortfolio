@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct TagsCloudView: View {
-    
+
     let tags: [Tag]
-    
+
     var body: some View {
         TagLabelView(tagName: "#Test35")
     }
 }
 
 struct TagLabelView: View {
-    
+
     let tagName: String
-    
+
     var body: some View {
         Text(tagName)
             .font(.headline)

@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct IssueTagsMenuView: View {
-    
+
     @EnvironmentObject var dataController: DataController
-    
+
     let issue: Issue
-    
+
     var body: some View {
-        
+
         Menu {
             // show selected tags first:
             ForEach(issue.issueTags) { tag in
@@ -24,13 +24,13 @@ struct IssueTagsMenuView: View {
                     Label(tag.tagName, systemImage: "checkmark")
                 }
             }
-            
+
             // then show unselected tags:
             let otherTags = dataController.getMissingTags(from: issue)
-            
+
             if !otherTags.isEmpty {
                 Divider()
-                
+
                 Section("Add Tags") {
                     ForEach(otherTags) { tag in
                         Button(tag.tagName) {
@@ -47,4 +47,3 @@ struct IssueTagsMenuView: View {
         }
     }
 }
-

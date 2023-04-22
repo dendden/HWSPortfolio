@@ -9,14 +9,14 @@ import SwiftUI
 
 @main
 struct HWSPortfolioApp: App {
-    
+
     @Environment(\.scenePhase) var scenePhase
-    
+
     @StateObject var dataController = DataController()
-    
+
     var body: some Scene {
         WindowGroup {
-            
+
             NavigationSplitView {
                 SidebarView()
             } content: {
