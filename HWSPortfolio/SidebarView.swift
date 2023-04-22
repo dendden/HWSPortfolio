@@ -29,7 +29,7 @@ struct SidebarView: View {
     
     var body: some View {
         List(selection: $dataController.selectedFilter) {
-            Section("Smart Filters") {
+            Section(StringKeys.SMART_FILTERS.localized) {
                 ForEach(smartFilters) { filter in
                     NavigationLink(value: filter) {
                         Label(filter.name, systemImage: filter.icon)
@@ -50,7 +50,7 @@ struct SidebarView: View {
             Button {
                 showingAwards.toggle()
             } label: {
-                Label("Show awards", systemImage: "rosette")
+                Label(StringKeys.SHOW_AWARDS.localized, systemImage: "rosette")
             }
             
             Button(action: dataController.addNewTag) {
