@@ -62,7 +62,7 @@
 		08DFC6A829EEE5E100C3631A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		08DFC6B029EEECC100C3631A /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
 		08DFC6B229EEF02700C3631A /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		08DFC6B429EEFC4000C3631A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		08DFC6B429EEFC4000C3631A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08DFC6B529EFC53E00C3631A /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		08DFC6B729EFC54B00C3631A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		08DFC6B929EFCF8900C3631A /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
@@ -85,6 +85,91 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0898E6D029F58C1900C81F1E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				08DFC6B229EEF02700C3631A /* DataController.swift */,
+				0898E6CC29F5855100C81F1E /* Enums-IssueFilters.swift */,
+				08DFC6B929EFCF8900C3631A /* Filter.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0898E6D129F58D1600C81F1E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				08DFC6BB29F00A0B00C3631A /* Issue-CD_Helpers.swift */,
+				08DFC6BD29F00E7F00C3631A /* Tag-CD_Helpers.swift */,
+				0898E68829F1C87F00C81F1E /* Bundle-Decodable.swift */,
+				0898E6A429F2EB9700C81F1E /* String-Localized.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0898E6D229F58D1E00C81F1E /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				0898E6C929F40E1200C81F1E /* LocalizableStringKeys.swift */,
+				0898E69E29F2E1F300C81F1E /* Localizable.strings */,
+				0898E6A129F2E1FE00C81F1E /* Localizable.stringsdict */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		0898E6D329F58D2600C81F1E /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				08DFC6B429EEFC4000C3631A /* Info.plist */,
+				08DFC6AF29EEECC100C3631A /* Main.xcdatamodeld */,
+				08DFC6A629EEE5E100C3631A /* HWSPortfolio.entitlements */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		0898E6D429F59E2800C81F1E /* Activities */ = {
+			isa = PBXGroup;
+			children = (
+				0898E6D529F59E6200C81F1E /* Sidebar */,
+				0898E6D629F59E7000C81F1E /* Content */,
+				0898E6D729F59E7B00C81F1E /* Details */,
+			);
+			path = Activities;
+			sourceTree = "<group>";
+		};
+		0898E6D529F59E6200C81F1E /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				08DFC6B529EFC53E00C3631A /* SidebarView.swift */,
+				0898E69229F1D7E900C81F1E /* AwardsView.swift */,
+				0898E69029F1D64F00C81F1E /* Award.swift */,
+				0898E6AA29F2F6D600C81F1E /* Awards.json */,
+			);
+			path = Sidebar;
+			sourceTree = "<group>";
+		};
+		0898E6D629F59E7000C81F1E /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				08DFC6A229EEE5DD00C3631A /* ContentView.swift */,
+				0898E6AE29F3D9CC00C81F1E /* FilterMenuView.swift */,
+				08DFC6BF29F01C7000C3631A /* IssueRowView.swift */,
+				08DFC6C529F068A900C3631A /* TagsCloudView.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		0898E6D729F59E7B00C81F1E /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				08DFC6B729EFC54B00C3631A /* DetailView.swift */,
+				08DFC6C129F03AC000C3631A /* IssueView.swift */,
+				0898E6B229F3E33B00C81F1E /* IssueSummaryView.swift */,
+				0898E6B029F3E27500C81F1E /* IssueTagsMenuView.swift */,
+				08DFC6C329F03ACC00C3631A /* NoIssueView.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		08DFC69429EEE5DD00C3631A = {
 			isa = PBXGroup;
 			children = (
@@ -104,35 +189,14 @@
 		08DFC69F29EEE5DD00C3631A /* HWSPortfolio */ = {
 			isa = PBXGroup;
 			children = (
-				08DFC6B429EEFC4000C3631A /* Info.plist */,
-				0898E6C929F40E1200C81F1E /* LocalizableStringKeys.swift */,
-				0898E69E29F2E1F300C81F1E /* Localizable.strings */,
-				0898E6A129F2E1FE00C81F1E /* Localizable.stringsdict */,
+				0898E6D429F59E2800C81F1E /* Activities */,
+				0898E6D029F58C1900C81F1E /* Controllers */,
+				0898E6D129F58D1600C81F1E /* Extensions */,
+				0898E6D229F58D1E00C81F1E /* Localization */,
+				0898E6D329F58D2600C81F1E /* Configuration */,
 				08DFC6A029EEE5DD00C3631A /* HWSPortfolioApp.swift */,
-				08DFC6B229EEF02700C3631A /* DataController.swift */,
-				08DFC6B929EFCF8900C3631A /* Filter.swift */,
-				0898E69029F1D64F00C81F1E /* Award.swift */,
-				0898E69229F1D7E900C81F1E /* AwardsView.swift */,
-				08DFC6B529EFC53E00C3631A /* SidebarView.swift */,
-				08DFC6A229EEE5DD00C3631A /* ContentView.swift */,
-				0898E6AE29F3D9CC00C81F1E /* FilterMenuView.swift */,
-				08DFC6BF29F01C7000C3631A /* IssueRowView.swift */,
-				08DFC6B729EFC54B00C3631A /* DetailView.swift */,
-				08DFC6C129F03AC000C3631A /* IssueView.swift */,
-				0898E6B229F3E33B00C81F1E /* IssueSummaryView.swift */,
-				0898E6B029F3E27500C81F1E /* IssueTagsMenuView.swift */,
-				08DFC6C529F068A900C3631A /* TagsCloudView.swift */,
-				08DFC6C329F03ACC00C3631A /* NoIssueView.swift */,
-				08DFC6BB29F00A0B00C3631A /* Issue-CD_Helpers.swift */,
-				08DFC6BD29F00E7F00C3631A /* Tag-CD_Helpers.swift */,
-				0898E68829F1C87F00C81F1E /* Bundle-Decodable.swift */,
-				0898E6A429F2EB9700C81F1E /* String-Localized.swift */,
-				0898E6CC29F5855100C81F1E /* Enums-IssueFilters.swift */,
-				08DFC6AF29EEECC100C3631A /* Main.xcdatamodeld */,
-				0898E6AA29F2F6D600C81F1E /* Awards.json */,
 				0898E69429F1DC7F00C81F1E /* Colors.xcassets */,
 				08DFC6A429EEE5E100C3631A /* Assets.xcassets */,
-				08DFC6A629EEE5E100C3631A /* HWSPortfolio.entitlements */,
 				08DFC6A729EEE5E100C3631A /* Preview Content */,
 			);
 			path = HWSPortfolio;
@@ -416,7 +480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = HWSPortfolio/HWSPortfolio.entitlements;
+				CODE_SIGN_ENTITLEMENTS = HWSPortfolio/Configuration/HWSPortfolio.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -425,7 +489,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HWSPortfolio/Info.plist;
+				INFOPLIST_FILE = HWSPortfolio/Configuration/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -457,7 +521,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = HWSPortfolio/HWSPortfolio.entitlements;
+				CODE_SIGN_ENTITLEMENTS = HWSPortfolio/Configuration/HWSPortfolio.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -466,7 +530,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HWSPortfolio/Info.plist;
+				INFOPLIST_FILE = HWSPortfolio/Configuration/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
