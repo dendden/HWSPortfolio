@@ -7,7 +7,14 @@
 
 import SwiftUI
 
+// a temporary solution to silence error about `.inline` title display mode
+// not available on MacOS.
 extension View {
+    /// Modifies the view with an `.inline` navigation bar title display
+    /// mode on `iOS` devices. Leaves the view unmodified on other operating
+    /// systems.
+    /// - Returns: A view with nav bar title display mode
+    /// modifications applied on `iOS` devices.
     func multiPlatformInlineNavigationBarTitle() -> some View {
         #if os(iOS)
         self.navigationBarTitleDisplayMode(.inline)

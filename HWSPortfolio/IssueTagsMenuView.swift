@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+/// A `Menu` for removing and adding available tags for the given issue.
+///
+/// Displays a list of attached tags on top, then a list of tags
+/// available to select on bottom. `Menu` is labeled with a formatted
+/// list of tags attached to the given issue (or text "No tags" if no
+/// tags are attached).
 struct IssueTagsMenuView: View {
 
     @EnvironmentObject var dataController: DataController

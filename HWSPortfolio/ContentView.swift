@@ -7,8 +7,13 @@
 
 import SwiftUI
 
+/// A SwiftUI view displaying the list of issues from the filter
+/// selected in ``SidebarView``.
 struct ContentView: View {
 
+    /// An environment object responsible for interacting with Core Data,
+    /// such as fetching, filtering and sorting entities, as well as
+    /// evaluating entity values, saving and deleting them.
     @EnvironmentObject var dataController: DataController
 
     var body: some View {
@@ -37,6 +42,10 @@ struct ContentView: View {
         }
     }
 
+    /// Calls ``dataController``'s ``DataController/delete(_:)`` method on
+    /// each issue specified in `offsets` parameter.
+    /// - Parameter offsets: A set of indexes in the `List`, at which
+    /// issues must be deleted.
     func delete(atOffsets offsets: IndexSet) {
 
         let issues = dataController.getIssuesForSelectedFilter()

@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+/// A SwiftUI View to represent ``DetailView`` when no issue is selected.
+/// This view contains a button to call `DataController`'s
+/// ``DataController/addNewIssue()`` method.
 struct NoIssueView: View {
 
     @EnvironmentObject var dataController: DataController

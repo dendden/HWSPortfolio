@@ -9,6 +9,14 @@ import Foundation
 
 extension Bundle {
 
+    /// Decodes a generic swift type from a `.json` file.
+    /// - Parameters:
+    ///   - file: Name of the file to decode, including extension.
+    ///   - type: Optional swift type expected to receive as a result of decoding.
+    ///   Required when type cannot be inferred from context.
+    ///   - dateDecodingStrategy: Defaults to `.deferredToDate`.
+    ///   - keyDecodingStrategy: Defaults to `.useDefaultKeys`.
+    /// - Returns: A swift type, decoded from a `.json` file.
     func decode<T: Decodable>(
         _ file: String,
         as type: T.Type = T.self,

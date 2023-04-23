@@ -19,6 +19,7 @@
 		0898E6B129F3E27500C81F1E /* IssueTagsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898E6B029F3E27500C81F1E /* IssueTagsMenuView.swift */; };
 		0898E6B329F3E33B00C81F1E /* IssueSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898E6B229F3E33B00C81F1E /* IssueSummaryView.swift */; };
 		0898E6CA29F40E1200C81F1E /* LocalizableStringKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898E6C929F40E1200C81F1E /* LocalizableStringKeys.swift */; };
+		0898E6CD29F5855100C81F1E /* Enums-IssueFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898E6CC29F5855100C81F1E /* Enums-IssueFilters.swift */; };
 		08DFC6A129EEE5DD00C3631A /* HWSPortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6A029EEE5DD00C3631A /* HWSPortfolioApp.swift */; };
 		08DFC6A329EEE5DD00C3631A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFC6A229EEE5DD00C3631A /* ContentView.swift */; };
 		08DFC6A529EEE5E100C3631A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08DFC6A429EEE5E100C3631A /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		0898E6B029F3E27500C81F1E /* IssueTagsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTagsMenuView.swift; sourceTree = "<group>"; };
 		0898E6B229F3E33B00C81F1E /* IssueSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueSummaryView.swift; sourceTree = "<group>"; };
 		0898E6C929F40E1200C81F1E /* LocalizableStringKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStringKeys.swift; sourceTree = "<group>"; };
+		0898E6CC29F5855100C81F1E /* Enums-IssueFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enums-IssueFilters.swift"; sourceTree = "<group>"; };
 		08DFC69D29EEE5DD00C3631A /* HWSPortfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWSPortfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08DFC6A029EEE5DD00C3631A /* HWSPortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWSPortfolioApp.swift; sourceTree = "<group>"; };
 		08DFC6A229EEE5DD00C3631A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				08DFC6BD29F00E7F00C3631A /* Tag-CD_Helpers.swift */,
 				0898E68829F1C87F00C81F1E /* Bundle-Decodable.swift */,
 				0898E6A429F2EB9700C81F1E /* String-Localized.swift */,
+				0898E6CC29F5855100C81F1E /* Enums-IssueFilters.swift */,
 				08DFC6AF29EEECC100C3631A /* Main.xcdatamodeld */,
 				0898E6AA29F2F6D600C81F1E /* Awards.json */,
 				0898E69429F1DC7F00C81F1E /* Colors.xcassets */,
@@ -249,6 +252,7 @@
 				08DFC6BA29EFCF8900C3631A /* Filter.swift in Sources */,
 				08DFC6C029F01C7000C3631A /* IssueRowView.swift in Sources */,
 				08DFC6B129EEECC100C3631A /* Main.xcdatamodeld in Sources */,
+				0898E6CD29F5855100C81F1E /* Enums-IssueFilters.swift in Sources */,
 				0898E68929F1C87F00C81F1E /* Bundle-Decodable.swift in Sources */,
 				08DFC6B829EFC54B00C3631A /* DetailView.swift in Sources */,
 				0898E6A529F2EB9700C81F1E /* String-Localized.swift in Sources */,

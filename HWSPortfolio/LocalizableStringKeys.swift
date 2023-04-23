@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+/// An enumeration containing (potentially) all localized string keys for
+/// use in UI elements mapping to `Localizable.strings` file.
 enum StringKeys: LocalizedStringKey {
     case showAwards = "SHOW_AWARDS"
     case addNewTag = "ADD_NEW_TAG"

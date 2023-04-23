@@ -7,10 +7,18 @@
 
 import SwiftUI
 
+/// A SwiftUI view laying out details about the given issue and controls
+/// to edit issue name and description, choose new priority and manage
+/// tags attached to the issue.
 struct IssueView: View {
 
     @EnvironmentObject var dataController: DataController
 
+    /// A toggle describing keyboard focus state on the issue title
+    /// text field.
+    @FocusState var issueTitleIsFocused: Bool
+
+    /// Issue to be displayed and edited.
     @ObservedObject var issue: Issue
 
     var body: some View {
@@ -19,7 +27,7 @@ struct IssueView: View {
 
             Section {
 
-                IssueSummaryView(issue: issue)
+                IssueSummaryView(issue: issue, issueTitleIsFocused: _issueTitleIsFocused)
 
                 Picker("Priority", selection: $issue.priority) {
                     Text("Low").tag(Int16(0))
@@ -57,10 +65,29 @@ struct IssueView: View {
         }
         .disabled(issue.isDeleted)
         .onReceive(issue.objectWillChange) { _ in
-            if issue.issueTitle == "" {
+            handleEmptyIssueTitleIfNeeded()
+            dataController.queueSave()
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Done".localized()) {
+                    issueTitleIsFocused = false
+                }
+            }
+        }
+    }
+
+    /// Checks for empty string upon keyboard dismiss after editing
+    /// issue title text field. If title was left empty - default name
+    /// of "**Issue**" is assigned to issue.
+    private func handleEmptyIssueTitleIfNeeded() {
+        // If user left Text Field empty after dismissing keyboard -
+        // - return default name for the Issue
+        if !issueTitleIsFocused {
+            if issue.issueTitle.trimmingCharacters(in: .whitespaces) == "" {
                 issue.issueTitle = "Issue"
             }
-            dataController.queueSave()
         }
     }
 }

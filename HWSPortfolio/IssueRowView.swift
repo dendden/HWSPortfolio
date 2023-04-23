@@ -7,9 +7,18 @@
 
 import SwiftUI
 
+/// A SwiftUI View for presenting a single `Issue` row within
+/// the list of issues of ``ContentView``.
+///
+/// The row contains following elements:
+/// + an "exclamation mark" SFSymbol image for issues with high priority
+/// (for other priority levels this image is hidden with `opacity(0)`);
+/// + a `VStack` of issue title and list of tags assigned to the issue;
+/// + a `VStack` of issue creation date and "CLOSED" text for completed issues.
 struct IssueRowView: View {
 
     @EnvironmentObject var dataController: DataController
+    /// The issue to be displayed in this row.
     @ObservedObject var issue: Issue
 
     var body: some View {

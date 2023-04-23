@@ -7,9 +7,17 @@
 
 import SwiftUI
 
+/// The top section of ``IssueView`` containing text field with issue title,
+/// its modification date and completion status.
 struct IssueSummaryView: View {
 
     @ObservedObject var issue: Issue
+    /// A toggle describing keyboard focus state on the issue title
+    /// text field.
+    ///
+    /// This variable is passed from parent ``IssueView`` and attached
+    /// to the issue title text field.
+    @FocusState var issueTitleIsFocused: Bool
 
     var body: some View {
 
@@ -17,6 +25,7 @@ struct IssueSummaryView: View {
 
             TextField("Title", text: $issue.issueTitle, prompt: Text("Enter the issue title here"))
                 .font(.title)
+                .focused($issueTitleIsFocused)
 
             Text("**Modified:** \(issue.issueModificationDate.formatted(date: .long, time: .shortened))")
                 .foregroundStyle(.secondary)

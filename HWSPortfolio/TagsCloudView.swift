@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+/// A perspective collection of ``TagLabelView`` views to display
+/// within an ``IssueRowView`` or as a list of issue tags to label
+/// ``IssueTagsMenuView``.
 struct TagsCloudView: View {
 
     let tags: [Tag]
@@ -16,6 +19,11 @@ struct TagsCloudView: View {
     }
 }
 
+/// A SwiftUI View representing a single tag in a capsule shape.
+///
+/// This View is used to represent `filterTokens` for each tag when user
+/// interacts with ``ContentView`` search field starting their prompt
+/// with a `#` symbol.
 struct TagLabelView: View {
 
     let tagName: String

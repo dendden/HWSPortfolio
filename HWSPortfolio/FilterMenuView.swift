@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+/// A SwiftUI `Menu` view which provides interface to filter and
+/// sort issues listed in ``ContentView``.
+///
+/// `Menu` contains following elements:
+/// + a `Button` to turn the priority and completion status filter on or off;
+/// + a submenu with controls for issues sorting parameter and order;
+/// + a `Picker` for priority filter;
+/// + a `Picker` for completion status filter.
 struct FilterMenuView: View {
 
     @EnvironmentObject var dataController: DataController
