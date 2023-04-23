@@ -178,7 +178,7 @@ class DataController: ObservableObject {
 
     // Save changes to the Issue on-the-go with 3-second pauses as the user types in
     // deletes information regarding Issue properties
-    /// Cancels current ``saveTask`` on @MainActor and starts new one with a 3 seconds sleep.
+    /// Cancels current `saveTask` on @MainActor and starts new one with a 3 seconds sleep.
     ///
     /// This method is called by ``IssueView`` in response to changes published by `Issue` when user edits its content.
     func queueSave() {
