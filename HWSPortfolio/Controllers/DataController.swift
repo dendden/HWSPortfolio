@@ -73,6 +73,22 @@ class DataController: ObservableObject {
         return dataController
     }()
 
+    /// A cached computed property that returns an instance of
+    /// `managedObjectModel` loaded from `Bundle.main.momd` file.
+    ///
+    /// Using static model allows to avoid ambiguity when running tests.
+    static let model: NSManagedObjectModel = {
+        guard let url = Bundle.main.url(forResource: "Main", withExtension: "momd") else {
+            fatalError("Failed to locate Model file in Bundle.")
+        }
+
+        guard let managedObjectModel = NSManagedObjectModel(contentsOf: url) else {
+            fatalError("Failed to load Model file from Bundle.")
+        }
+
+        return managedObjectModel
+    }()
+
     /// Array of `Tags` that correspond to filter commands input by user in
     /// ``ContentView`` search field.
     ///
@@ -99,7 +115,7 @@ class DataController: ObservableObject {
     /// - Parameter inMemory: Defines whether `DataController` should be initialized for testing
     /// in temporary memory or nominal app run in permanent memory.
     init(inMemory: Bool = false) {
-        self.container = NSPersistentCloudKitContainer(name: "Main")
+        self.container = NSPersistentCloudKitContainer(name: "Main", managedObjectModel: Self.model)
 
         // Fore testing/previewing purposes - create a temporary in-memory database
         // by writing to '/dev/null' so that data is destroyed after the app exits.
@@ -204,7 +220,7 @@ class DataController: ObservableObject {
     /// `NSBatchDeleteRequest` into `viewContext`.
     /// - Parameter fetchRequest: An `NSFetchRequest` for given `NSManagedObject`, results
     /// of which must be deleted from container.
-    private func delete(fetchRequest: NSFetchRequest<NSFetchRequestResult>) {
+    func delete(fetchRequest: NSFetchRequest<NSFetchRequestResult>) {
         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         batchDeleteRequest.resultType = .resultTypeObjectIDs
 
