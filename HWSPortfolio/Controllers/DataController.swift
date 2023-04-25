@@ -376,6 +376,14 @@ class DataController: ObservableObject {
         save()
     }
 
+    /// Marks given issue as completed and saves changes
+    /// in persistent store.
+    /// - Parameter issue: An issue to mark as closed.
+    func closeIssue(_ issue: Issue) {
+        issue.completed = true
+        save()
+    }
+
     /// Creates a new `Tag` entity and saves it to `NSManagedObjectContext`
     /// with a default name of "**New tag**".
     func addNewTag() {

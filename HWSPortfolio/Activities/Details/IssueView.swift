@@ -62,6 +62,13 @@ struct IssueView: View {
                     )
                 }
             }
+
+            Section {
+
+                Button("Close issue") {
+                    dataController.closeIssue(issue)
+                }
+            }
         }
         .disabled(issue.isDeleted)
         .onReceive(issue.objectWillChange) { _ in
@@ -90,6 +97,7 @@ struct IssueView: View {
             }
         }
     }
+
 }
 
 struct IssueView_Previews: PreviewProvider {
