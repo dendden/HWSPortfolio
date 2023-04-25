@@ -144,6 +144,13 @@ class DataController: ObservableObject {
             if let error {
                 fatalError("Fatal error loading persistent stores: \(error.localizedDescription)")
             }
+
+            #if DEBUG
+            if CommandLine.arguments.contains("enable-testing") {
+                self.deleteAll()
+                UIView.setAnimationsEnabled(false)
+            }
+            #endif
         }
     }
 

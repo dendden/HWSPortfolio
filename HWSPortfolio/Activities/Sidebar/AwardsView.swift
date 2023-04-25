@@ -63,7 +63,11 @@ struct AwardsView: View {
         if dataController.hasEarned(selectedAward) {
             return "Unlocked: \(selectedAward.name)"
         } else {
+            #if DEBUG
+            return "(locked)"
+            #else
             return "\(selectedAward.name) (locked)"
+            #endif
         }
     }
 

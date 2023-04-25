@@ -1,8 +1,8 @@
 //
-//  HWSPortfolioTests.swift
-//  HWSPortfolioTests
+//  HWSPortfolio_PerformanceTests.swift
+//  HWSPortfolio_PerformanceTests
 //
-//  Created by Денис Трясунов on 24.04.2023.
+//  Created by Денис Трясунов on 25.04.2023.
 //
 
 import CoreData
