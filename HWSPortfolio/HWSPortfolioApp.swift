@@ -27,7 +27,7 @@ struct HWSPortfolioApp: App {
         WindowGroup {
 
             NavigationSplitView {
-                SidebarView()
+                SidebarView(dataController: dataController)
             } content: {
                 ContentView()
             } detail: {

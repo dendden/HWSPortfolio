@@ -46,6 +46,7 @@
 		08F3580129F7A7950058845D /* AwardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F3580029F7A7950058845D /* AwardTests.swift */; };
 		08F3580929F7BD470058845D /* HWSPortfolioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F3580829F7BD470058845D /* HWSPortfolioUITests.swift */; };
 		08F3580B29F7BD470058845D /* HWSPortfolioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F3580A29F7BD470058845D /* HWSPortfolioUITestsLaunchTests.swift */; };
+		08F3581229F7E0AA0058845D /* SidebarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F3581129F7E0AA0058845D /* SidebarViewModel.swift */; };
 		08FF717729F6C52A00AF4E51 /* DevelopmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FF717629F6C52A00AF4E51 /* DevelopmentTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +123,7 @@
 		08F3580629F7BD470058845D /* HWSPortfolioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HWSPortfolioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08F3580829F7BD470058845D /* HWSPortfolioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWSPortfolioUITests.swift; sourceTree = "<group>"; };
 		08F3580A29F7BD470058845D /* HWSPortfolioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWSPortfolioUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		08F3581129F7E0AA0058845D /* SidebarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewModel.swift; sourceTree = "<group>"; };
 		08FF717629F6C52A00AF4E51 /* DevelopmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				08DFC6B529EFC53E00C3631A /* SidebarView.swift */,
+				08F3581129F7E0AA0058845D /* SidebarViewModel.swift */,
 				0898E69229F1D7E900C81F1E /* AwardsView.swift */,
 				0898E69029F1D64F00C81F1E /* Award.swift */,
 				0898E6AA29F2F6D600C81F1E /* Awards.json */,
@@ -540,6 +543,7 @@
 				08DFC6BA29EFCF8900C3631A /* Filter.swift in Sources */,
 				08DFC6C029F01C7000C3631A /* IssueRowView.swift in Sources */,
 				08DFC6B129EEECC100C3631A /* Main.xcdatamodeld in Sources */,
+				08F3581229F7E0AA0058845D /* SidebarViewModel.swift in Sources */,
 				0898E6CD29F5855100C81F1E /* Enums-IssueFilters.swift in Sources */,
 				0898E68929F1C87F00C81F1E /* Bundle-Decodable.swift in Sources */,
 				08DFC6B829EFC54B00C3631A /* DetailView.swift in Sources */,
