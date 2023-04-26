@@ -5,6 +5,7 @@
 //  Created by Денис Трясунов on 18.04.2023.
 //
 
+import CoreSpotlight
 import SwiftUI
 
 /// A SwiftUI view displaying the list of issues from the filter
@@ -40,6 +41,7 @@ struct ContentView: View {
 
             FilterMenuView()
         }
+        .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightIssue)
     }
 
     /// Calls ``dataController``'s ``DataController/delete(_:)`` method on
@@ -53,6 +55,12 @@ struct ContentView: View {
         for offset in offsets {
             let item = issues[offset]
             dataController.delete(item)
+        }
+    }
+
+    func loadSpotlightIssue(_ userActivity: NSUserActivity) {
+        if let uniqueID = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
+            dataController.selectIssueFromSpotlight(issueID: uniqueID)
         }
     }
 }

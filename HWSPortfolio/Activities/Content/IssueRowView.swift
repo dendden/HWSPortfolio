@@ -10,7 +10,7 @@ import SwiftUI
 /// A SwiftUI View for presenting a single `Issue` row within
 /// the list of issues of ``ContentView``.
 ///
-/// The row contains following elements:
+/// The row acts as `NavigationLink` to ``IssueView`` and contains following elements:
 /// + an "exclamation mark" SFSymbol image for issues with high priority
 /// (for other priority levels this image is hidden with `opacity(0)`);
 /// + a `VStack` of issue title and list of tags assigned to the issue;

@@ -17,6 +17,9 @@ struct IssueView: View {
     /// A toggle describing keyboard focus state on the issue title
     /// text field.
     @FocusState var issueTitleIsFocused: Bool
+    /// A toggle describing keyboard focus state on the issue content
+    /// text field.
+    @FocusState var issueContentIsFocused: Bool
 
     /// Issue to be displayed and edited.
     @ObservedObject var issue: Issue
@@ -60,6 +63,7 @@ struct IssueView: View {
                         text: $issue.issueContent,
                         prompt: Text("Enter the issue description here"), axis: .vertical
                     )
+                    .focused($issueContentIsFocused)
                 }
             }
 
@@ -73,13 +77,15 @@ struct IssueView: View {
         .disabled(issue.isDeleted)
         .onReceive(issue.objectWillChange) { _ in
             handleEmptyIssueTitleIfNeeded()
-            dataController.queueSave()
+            dataController.queueSave(issue)
         }
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
                 Button("Done".localized()) {
+                    // dismiss any active keyboard
                     issueTitleIsFocused = false
+                    issueContentIsFocused = false
                 }
             }
         }

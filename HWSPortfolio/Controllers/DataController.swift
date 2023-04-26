@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import CoreSpotlight
 import SwiftUI
 
 // swiftlint:disable file_length
@@ -203,21 +204,43 @@ class DataController: ObservableObject {
     // deletes information regarding Issue properties
     /// Cancels current `saveTask` on @MainActor and starts new one with a 3 seconds sleep.
     ///
-    /// This method is called by ``IssueView`` in response to changes published by `Issue` when user edits its content.
-    func queueSave() {
+    /// This method is called by ``IssueView`` in response to changes
+    /// published by `Issue` when user edits its content.
+    /// - Parameter issue: An optional `Issue` entity to put into save queue.
+    /// If not nil, this issue will also be indexed by `Spotlight` with
+    /// ``updateIssue(_:)`` method.
+    func queueSave(_ issue: Issue? = nil) {
         saveTask?.cancel()
 
         // explicitly force the Task to main thread, otherwise it might run on background
         saveTask = Task { @MainActor in
             try await Task.sleep(for: .seconds(3))
+
+            if let issue = issue {
+                updateIssue(issue)
+            }
+
             save()
         }
     }
 
+    /// Deletes object from `NSManagedObjectContext` and calls
+    /// ``save()`` on container.
+    ///
+    /// This method notifies observers of `DataController` about its
+    /// change.
+    ///
+    /// If object to delete is an `Issue` - this method also
+    /// removes the object from `Spotlight` index.
+    /// - Parameter object: An object to delete from `Core Data`.
     func delete(_ object: NSManagedObject) {
         // notify observers to update their UI.
         objectWillChange.send()
         self.container.viewContext.delete(object)
+        if object is Issue {
+            let id = object.objectID.uriRepresentation().absoluteString
+            CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [id])
+        }
         save()
     }
 
@@ -435,6 +458,63 @@ class DataController: ObservableObject {
         }
     }
 
+    /// Updates `Issue` title and content in `Spotlight` index.
+    ///
+    /// This method does not call ``save()`` on `Core Data`, because
+    /// it is called prior to ``save()`` by ``queueSave(_:)`` method.
+    /// - Parameter issue: An issue to update in Spotlight index.
+    func updateIssue(_ issue: Issue) {
+        // Spotlight object ID:
+        let issueID = issue.objectID.uriRepresentation().absoluteString
+        // Spotlight domain IDs - all tag ids for issue:
+//        let tagID = issue.issueTags.map { tag in
+//            tag.objectID.uriRepresentation().absoluteString
+//        }
+
+        let attributeSet = CSSearchableItemAttributeSet(contentType: .text)
+        attributeSet.title = issue.issueTitle
+        attributeSet.contentDescription = issue.issueContent
+
+        let searchableItem = CSSearchableItem(
+            uniqueIdentifier: issueID,
+            domainIdentifier: nil,
+            attributeSet: attributeSet
+        )
+
+        CSSearchableIndex.default().indexSearchableItems([searchableItem])
+    }
+
+    /// Finds `Issue` with given unique identifier in `NSPersistentStoreCoordinator`.
+    /// - Parameter uniqueID: An identifier qualified for constructing a
+    /// valid `URL`.
+    /// - Returns: An `Issue` object for given unique identifier if it exists,
+    /// `nil` otherwise.
+    func findIssue(with uniqueID: String) -> Issue? {
+        guard let url = URL(string: uniqueID) else {
+            return nil
+        }
+        guard let id = container.persistentStoreCoordinator.managedObjectID(forURIRepresentation: url) else {
+            return nil
+        }
+
+        return try? container.viewContext.existingObject(with: id) as? Issue
+    }
+
+    /// Finds `Issue` by its unique identifier calling ``findIssue(with:)``
+    /// method and assigns it to ``selectedIssue`` variable.
+    ///
+    /// If a call to ``findIssue(with:)`` returns a valid `Issue` object,
+    /// this method sets ``selectedFilter`` to ``Filter/allIssues`` for
+    /// correct navigation within ``ContentView``.
+    /// - Parameter issueID: An identifier qualified for constructing a
+    /// valid `URL`.
+    func selectIssueFromSpotlight(issueID: String) {
+        if let issue = findIssue(with: issueID) {
+            selectedFilter = .allIssues
+            selectedIssue = issue
+        }
+    }
+
     /// A localized navigation title for ``ContentView`` that corresponds
     /// to filter or tag name of ``selectedFilter``.
     var selectedContentNavigationTitle: LocalizedStringKey {
@@ -446,4 +526,5 @@ class DataController: ObservableObject {
             return LocalizedStringKey(filter.name)
         }
     }
+
 }
