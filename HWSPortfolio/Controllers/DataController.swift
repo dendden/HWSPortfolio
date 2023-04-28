@@ -8,8 +8,10 @@
 import CoreData
 import CoreSpotlight
 import SwiftUI
+import UserNotifications
 
 // swiftlint:disable file_length
+// swiftlint:disable type_body_length
 
 /// An environment singleton class responsible for handling interaction between UI and Core Data,
 /// including saving, counting, fetching, sorting and deleting data.
@@ -208,8 +210,9 @@ class DataController: ObservableObject {
     /// published by `Issue` when user edits its content.
     /// - Parameter issue: An optional `Issue` entity to put into save queue.
     /// If not nil, this issue will also be indexed by `Spotlight` with
-    /// ``updateIssue(_:)`` method.
-    func queueSave(_ issue: Issue? = nil) {
+    /// ``updateIssue(_:)`` method. Also, if issue's reminder time was set or removed -
+    /// according action will be taken on issue's notifications.
+    func queueSave(_ issue: Issue? = nil, completion: @escaping (Bool) -> Void) {
         saveTask?.cancel()
 
         // explicitly force the Task to main thread, otherwise it might run on background
@@ -218,6 +221,11 @@ class DataController: ObservableObject {
 
             if let issue = issue {
                 updateIssue(issue)
+                if issue.reminderTime != nil {
+                    addReminder(for: issue, completion: completion)
+                } else {
+                    removeReminder(from: issue)
+                }
             }
 
             save()
@@ -527,4 +535,92 @@ class DataController: ObservableObject {
         }
     }
 
+    // MARK: - Local Notifications
+    /// Checks for notifications authorization status for the app and proceeds to
+    /// scheduling a reminder if authorization is granted.
+    /// - Parameters:
+    ///   - issue: An `Issue` object, for which a reminder must be set.
+    ///   - completion: A result of attempt to set a reminder: returns `true`
+    ///   in case of success, `false` in case of authorization or scheduling failure.
+    func addReminder(for issue: Issue, completion: @escaping (Bool) -> Void) {
+        let center = UNUserNotificationCenter.current()
+
+        center.getNotificationSettings { settings in
+            switch settings.authorizationStatus {
+            case .notDetermined:
+                self.requestNotificationsPermission { isGranted in
+                    if isGranted {
+                        self.scheduleReminder(for: issue, completion: completion)
+                    } else {
+                        DispatchQueue.main.async {
+                            completion(false)
+                        }
+                    }
+                }
+            case .authorized:
+                self.scheduleReminder(for: issue, completion: completion)
+            default:
+                DispatchQueue.main.async {
+                    completion(false)
+                }
+            }
+        }
+    }
+
+    /// Removes reminder for a specific `Issue` object from `NotificationCenter`.
+    /// - Parameter issue: An `Issue` object, reminder for which must be removed.
+    func removeReminder(from issue: Issue) {
+        let center = UNUserNotificationCenter.current()
+        let issueId = issue.objectID.uriRepresentation().absoluteString
+
+        center.removePendingNotificationRequests(withIdentifiers: [issueId])
+    }
+
+    /// Requests authorization to display notifications with `.alert`, `.badge` and `.sound`
+    /// options.
+    /// - Parameter completion: A result of authorization request.
+    private func requestNotificationsPermission(completion: @escaping (Bool) -> Void) {
+        let center = UNUserNotificationCenter.current()
+
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { isGranted, _ in
+            completion(isGranted)
+        }
+    }
+
+    /// Creates notification content, trigger (based on issue's `reminderTime`), id and passes
+    /// the request to schedule notification to `NotificationCenter`.
+    /// - Parameters:
+    ///   - issue: An `Issue` object, for which notification must be scheduled.
+    ///   - completion: A result of request to schedule notification.
+    private func scheduleReminder(for issue: Issue, completion: @escaping (Bool) -> Void) {
+        // NOTIFICATION CONTENT
+        let content = UNMutableNotificationContent()
+        content.title = issue.issueTitle
+        content.sound = .default
+
+        if let issueDetails = issue.content {
+            content.subtitle = issueDetails
+        }
+
+        // NOTIFICATION TRIGGER
+        // this method should only be called for issues with set reminder times
+        guard let reminderTime = issue.reminderTime else {
+            completion(false)
+            return
+        }
+        let components = Calendar.current.dateComponents([.hour, .minute], from: reminderTime)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+
+        // NOTIFICATION ID + REQUEST
+        let issueId = issue.objectID.uriRepresentation().absoluteString
+        let request = UNNotificationRequest(identifier: issueId, content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { error in
+            DispatchQueue.main.async {
+                completion(error == nil)
+            }
+        }
+    }
+
+    // swiftlint:enable type_body_length
 }

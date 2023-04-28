@@ -24,6 +24,9 @@ struct IssueView: View {
     /// Issue to be displayed and edited.
     @ObservedObject var issue: Issue
 
+    /// A toggle triggering display of Notifications error alert.
+    @State private var showingNotificationError = false
+
     var body: some View {
 
         Form {
@@ -48,6 +51,16 @@ struct IssueView: View {
 
                     IssueTagsMenuView(issue: issue)
                 }
+            }
+
+            Section {
+                IssueReminderPickerView(issue)
+                    .alert("Error", isPresented: $showingNotificationError) {
+                        Button("Cancel", role: .cancel) {}
+                        Button("Settings", action: showSystemSettings)
+                    } message: {
+                        Text("Check notification settings for HWSPortfolio.")
+                    }
             }
 
             Section {
@@ -77,7 +90,11 @@ struct IssueView: View {
         .disabled(issue.isDeleted)
         .onReceive(issue.objectWillChange) { _ in
             handleEmptyIssueTitleIfNeeded()
-            dataController.queueSave(issue)
+            dataController.queueSave(issue) { success in
+                if !success {
+                    showingNotificationError = true
+                }
+            }
         }
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
@@ -101,6 +118,17 @@ struct IssueView: View {
             if issue.issueTitle.trimmingCharacters(in: .whitespaces) == "" {
                 issue.issueTitle = "Issue"
             }
+        }
+    }
+
+    /// Opens Notifications settings for `HWSPortfolio` as an action from Notifications
+    /// error alert.
+    private func showSystemSettings() {
+        guard let settingsURL = URL(string: UIApplication.openNotificationSettingsURLString) else { return
+        }
+
+        if UIApplication.shared.canOpenURL(settingsURL) {
+            UIApplication.shared.open(settingsURL)
         }
     }
 
